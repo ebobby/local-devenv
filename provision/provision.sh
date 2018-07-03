@@ -24,7 +24,7 @@ apt-get -y upgrade
 ################################################################################
 apt-get -y install build-essential curl gdb git-core htop imagemagick linux-tools-generic lsb-release openssl \
         python-software-properties rar rlwrap screen silversearcher-ag subversion systemtap tree unrar \
-        unzip valgrind vim zip zsh unattended-upgrades
+        unzip valgrind vim zip zsh unattended-upgrades psmisc nano
 
 ################################################################################
 # Ruby/Rails requirements
@@ -57,7 +57,7 @@ EOF
 }
 
 install_ruby_and_bundler () {
-    execute_with_rbenv "MAKE_OPTS='-j4' rbenv install $1"
+    execute_with_rbenv "MAKE_OPTS='-j6' rbenv install $1"
     execute_with_rbenv "rbenv local $1"
     execute_with_rbenv "gem install bundler"
 }
@@ -153,6 +153,7 @@ hostname local.dev
 eval "$(dircolors)"
 export PS1="[\[\033[1;35m\]\u\[\033[0m\]@\[\033[1;34m\]\h\[\033[0m\]:\[\033[1;37m\]\w\[\033[0m\]]$ "
 export DISPLAY=:99
+export TERM=xterm-256color
 
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
@@ -210,7 +211,7 @@ echo "#                                                                         
 echo "# You are not yet done! You need to do the following to finish the setup:            "
 echo "# 1) Get all the project repositories                                                "
 echo "# 2) Configure your ssh username and git information:                                "
-echo "#     pico ~/.ssh/config                                                             "
-echo "#     pico ~/.gitconfig                                                              "
+echo "#     nano ~/.ssh/config                                                             "
+echo "#     nano ~/.gitconfig                                                              "
 echo "#                                                                                    "
 echo "#####################################################################################"
