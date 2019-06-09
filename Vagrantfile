@@ -16,6 +16,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider 'lxc' do |lxc|
     lxc.container_name = 'local-devenv'
-    lxc.customize 'cgroup.cpuset.cpus', '0,1'
   end
 end
