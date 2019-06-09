@@ -172,9 +172,6 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias glog='git log --oneline --decorate --graph'
-alias careful="cd /vagrant/careful"
-alias careflow="cd /vagrant/careflow"
-alias mmaker="cd /vagrant/money_maker"
 
 # Load secret keys, if any.
 if [ -f ~/.secret_keys.sh ]; then
