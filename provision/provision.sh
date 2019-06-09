@@ -6,14 +6,21 @@
 /usr/sbin/update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 export DEBIAN_FRONTEND=noninteractive
 
+apt-get -y update
+apt-get -y install gnupg2 git software-properties-common unattended-upgrades psmisc \
+        nano lsb-release man-db
+
 ################################################################################
 # Add custom repositories
 ################################################################################
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
+# Multiverse
 apt-add-repository multiverse                                                                                                # Multiverse
-add-apt-repository ppa:dawidd0811/neofetch
+# PostgreSQL repositories
 sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' # PostgreSQL repositories
+# Neofetch
+add-apt-repository ppa:dawidd0811/neofetch
 
 # Sane update/upgrade.
 apt-get -y update
@@ -22,8 +29,8 @@ apt-get -y upgrade
 ################################################################################
 # Install basic requirements and utilities
 ################################################################################
-apt-get -y install build-essential curl gdb git-core htop imagemagick linux-tools-generic lsb-release openssl \
-        python-software-properties rar rlwrap screen silversearcher-ag subversion systemtap tree unrar \
+apt-get -y install build-essential curl gdb git htop imagemagick linux-tools-generic openssl \
+        rar rlwrap screen silversearcher-ag subversion systemtap tree unrar \
         unzip valgrind vim zip zsh unattended-upgrades psmisc nano
 
 ################################################################################
