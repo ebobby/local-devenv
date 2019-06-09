@@ -148,6 +148,11 @@ sudo -u postgres createuser -d -R -w -s vagrant -p 5432
 perl -i -p -e 's/local   all             all                                     peer/local all all trust/' /etc/postgresql/10/main/pg_hba.conf
 
 ################################################################################
+# Redis
+################################################################################
+apt-get -y install redis
+
+################################################################################
 # Basic environment setup
 ################################################################################
 echo "local.dev" > /etc/hostname
