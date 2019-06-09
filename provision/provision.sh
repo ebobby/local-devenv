@@ -119,7 +119,7 @@ rm /home/vagrant/install_nvm.sh
 # Install the Rubies
 ################################################################################
 RUBIES=(
-    2.5.1
+    2.6.3
 )
 
 for i in "${RUBIES[@]}"
@@ -131,8 +131,8 @@ execute_with_rbenv "rbenv global ${RUBIES[-1]}"
 ################################################################################
 # Install NodeJS
 ################################################################################
-execute_with_nvm "nvm install lts/carbon"
-execute_with_nvm "nvm alias default lts/carbon"
+execute_with_nvm "nvm install lts/dubnium"
+execute_with_nvm "nvm alias default lts/dubnium"
 execute_with_nvm "nvm use default"
 execute_with_nvm "npm -g install npm@latest"
 
